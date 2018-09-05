@@ -65,7 +65,7 @@ public class NeuerEintragActivity extends Activity
 	/**
 	 * Event-Handler für Buttons.
 	 * 
-	 * @param view Einer der beiden Buttons, der das Event ausgelöst hat.
+	 * @param view Einer der beiden Buttons, der das Event ausgelöst hat
 	 */
 	@Override
 	public void onClick(View view) {
@@ -148,5 +148,4 @@ public class NeuerEintragActivity extends Activity
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 
-		 
 };

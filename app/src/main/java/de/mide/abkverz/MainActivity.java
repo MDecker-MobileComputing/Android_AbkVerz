@@ -90,7 +90,6 @@ public class MainActivity extends Activity
 			String errorMsg = "Unerwartetes View-Element hat onClick-Event ausgelöst: " + view;
 			Log.w(TAG4LOGGING, errorMsg);
 			showToast(errorMsg);
-			
 		}
 	}
 	
