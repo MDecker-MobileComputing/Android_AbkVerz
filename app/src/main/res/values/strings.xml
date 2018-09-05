@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Abk-Verz</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="textedit_hint_abk_suche">Zu suchende Abk.</string>
+    <string name="button_label_abk_suche">Abk. suchen</string>
+    <string name="button_label_eintrag_anlegen">Neuen Eintrag anlegen</string>
+    <string name="button_label_einfuegen">Einfügen</string>
+    <string name="button_label_zurueck">Zurück</string>
+    <string name="title_activity_neuer_eintrag">Anlegen eines neuen Eintrages</string>
+    <string name="textedit_hint_abk_neu">Neue Abk.</string>
+    <string name="textedit_hint_bedeutung_neu">Bedeutung der neuen Abk.</string>
+    
+</resources>
