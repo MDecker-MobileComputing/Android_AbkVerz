@@ -32,6 +32,9 @@ import android.util.Log;
  * <pre>
  *     adb root
  * </pre>
+ * <br><br>
+ *
+ * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstants {
 

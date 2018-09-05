@@ -2,6 +2,7 @@
 # in die Versionsverwaltung aufgenommen werden sollen (v.a., weil
 # sie von Android Studio selbst erzeugt werden können).
 
+*.iml
 local.properties
 
 .idea/

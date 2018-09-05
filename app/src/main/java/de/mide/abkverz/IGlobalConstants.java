@@ -8,6 +8,9 @@ package de.mide.abkverz;
  * 
  * Damit man gleich erkennt, dass es sich um ein Interface handelt, fängt
  * der Name mit einem "I" an.
+ * <br><br>
+ *
+ * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public interface IGlobalConstants {
 

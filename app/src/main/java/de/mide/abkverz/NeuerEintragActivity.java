@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 /**
  * Activity, um eine neue Abkürzung in die DB einzutragen.
+ * <br><br>
+ *
+ * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class NeuerEintragActivity extends Activity 
 								  implements IGlobalConstants, OnClickListener {

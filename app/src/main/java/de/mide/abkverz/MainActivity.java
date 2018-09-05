@@ -16,7 +16,7 @@ import android.widget.Toast;
  * <br><br>
  *
  * Erste Version für Android Studio: September 2016.<br/>
- * Weitere Versionen: Mai 2017, September 2018.
+ * Weitere Versionen: Mai 2017, ..., September 2018.
  * <br><br>
  *
  * This project is licensed under the terms of the BSD 3-Clause License.
