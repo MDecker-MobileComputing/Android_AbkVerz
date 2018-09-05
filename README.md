@@ -9,6 +9,10 @@ Identifiers (names for classes, variables and methods) and UI texts are in Germa
 
 <br>
 
+SQL files for testing with command line program SQLite3 can be found in sub-folder "SQL".
+
+<br>
+
 ----
 ## Screenshots
 
