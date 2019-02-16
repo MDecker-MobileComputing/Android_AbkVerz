@@ -1,4 +1,4 @@
-# WearOS-App: "AbkVerz"
+# Android-App: "AbkVerz"
 
 Source code for an Android app (project for *Android Studio*) demonstrating how to use SQLite database for an app to store and search abbreviations.
 
