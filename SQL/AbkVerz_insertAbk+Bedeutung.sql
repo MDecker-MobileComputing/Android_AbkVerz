@@ -1,3 +1,4 @@
+
 INSERT INTO abkuerzungen (abkuerzung) VALUES ('ARM');
 
 

@@ -1,3 +1,4 @@
+
 SELECT abkuerzungen.abk_id, abkuerzung, bedeutung 
 	FROM abkuerzungen, bedeutungen
 	WHERE abkuerzungen.abk_id = bedeutungen.abk_id

@@ -1,3 +1,4 @@
+
 CREATE TABLE abkuerzungen (
   abk_id     INTEGER PRIMARY KEY,
   abkuerzung TEXT NOT NULL   		
