@@ -2,7 +2,7 @@ package de.mide.abkverz;
 
 
 /**
- * Konstanten für alle Klassen in diesem Projekt.<br/>
+ * Konstanten für alle Klassen in diesem Projekt.<br>
  * Als Interface, weil dann die nutzenden Klasse nur dieses Interface
  * implementieren müssen, um die Konstanten-Namen nutzen zu können
  * 

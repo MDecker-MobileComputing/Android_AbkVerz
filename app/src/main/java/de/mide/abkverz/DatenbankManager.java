@@ -54,11 +54,13 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	 * @param context Selbstreferenz auf Activity, die dieses Objekt erzeugt hat
 	 */
 	public DatenbankManager(Context context) {
-		super(context, 
+
+		super(context,
 			  "abkverz.db",  // Name der DB 
 			  null,          // Default-CursorFactory verwenden
 			  1);            // Versions-Nummer als int
-		
+
+
 		// *** Prepared Statements erzeugen ***
 		SQLiteDatabase db = getReadableDatabase();
 		
@@ -76,11 +78,10 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	
 	
 	/**
-	 * Abstrakte Methode aus <i>SQLiteOpenHelper</i>, 
-	 * muss also überschrieben werden;
-	 * Legt mit "CREATE TABLE" und "CREATE INDEX" das Datenbankschema an,
-	 * wenn noch nicht verhanden (z.B. beim ersten Start der App nach 
-	 * Installation)
+	 * Abstrakte Methode aus <i>SQLiteOpenHelper</i>, muss also überschrieben werden.
+	 *
+	 * Legt mit "CREATE TABLE" und "CREATE INDEX" das Datenbankschema an, wenn noch
+	 * nicht verhanden (z.B. beim ersten Start der App nach Installation).
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
@@ -105,7 +106,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	
 			db.execSQL("CREATE INDEX mein_index_2 ON bedeutungen (abk_id)");
 			
-			Log.i(TAG4LOGGING, "Datenbankschema angelegt");
+			Log.i(TAG4LOGGING, "Datenbankschema angelegt.");
 			
 			// *** Wir fügen noch ein paar Beispiel-Daten in die neuen Tabellen ein ***
 			db.execSQL("INSERT INTO abkuerzungen VALUES(1,'ADB');");
@@ -118,7 +119,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 			db.execSQL("INSERT INTO bedeutungen VALUES(3,'Human-Computer Interaction');");
 			db.execSQL("INSERT INTO bedeutungen VALUES(3,'Hash Collision Index'      );");
 			
-			Log.v(TAG4LOGGING, "Beispiel-Datensätze eingefügt");
+			Log.v(TAG4LOGGING, "Beispiel-Datensätze eingefügt.");
 			
 		} catch (SQLException ex) {
 			Log.e(TAG4LOGGING, "Datenbank-Exception beim Anlegen von Schema aufgetreten: " + ex);
@@ -134,8 +135,9 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
 		Log.w(TAG4LOGGING, 
-			  "Leere Implementierung der onUpdate()-Methode in DatenbankManager aufgerufen");
+			  "Leere Implementierung der onUpdate()-Methode in DatenbankManager aufgerufen.");
 	}
 	
 	

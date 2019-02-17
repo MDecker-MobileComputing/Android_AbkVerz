@@ -15,9 +15,6 @@ import android.widget.Toast;
  * Beispiel-App zur Nutzung der in Android eingebauten SQLite-Datenbank. 
  * <br><br>
  *
- * Erste Version für Android Studio: September 2016.<br/>
- * Weitere Versionen: Mai 2017, ..., September 2018.
- * <br><br>
  *
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
@@ -47,6 +44,7 @@ public class MainActivity extends Activity
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
@@ -55,10 +53,10 @@ public class MainActivity extends Activity
 		
 		
 		// *** Referenzen auf UI-Elemente abfragen ***
-		_textEditAbkZumSuchen = (EditText) findViewById(R.id.textEditFuerAbkZumSuchen       );
-		_buttonAbkSuche       = (Button)   findViewById(R.id.buttonStartAbkSuche            );
-		_buttonNeuerEintrag   = (Button)   findViewById(R.id.buttonNeueAbkEintragen         );
-		_textViewBedeutungen  = (TextView) findViewById(R.id.textViewFuerAnzeigeBedeutungen );
+		_textEditAbkZumSuchen = findViewById(R.id.textEditFuerAbkZumSuchen       );
+		_buttonAbkSuche       = findViewById(R.id.buttonStartAbkSuche            );
+		_buttonNeuerEintrag   = findViewById(R.id.buttonNeueAbkEintragen         );
+		_textViewBedeutungen  = findViewById(R.id.textViewFuerAnzeigeBedeutungen );
 				
 		
 		// *** Event-Handler für Buttons setzen ***
@@ -98,6 +96,7 @@ public class MainActivity extends Activity
 	 * Suche nach Bedeutungen von eine eingegebene Abkürzung.
 	 */
 	protected void sucheNachAbk() {
+
 		String errorMsg = null;
 		String[] bedeutungen = null;
 				
@@ -130,7 +129,6 @@ public class MainActivity extends Activity
 		for(String bedeutung: bedeutungen)
 			sb.append(bedeutung).append("\n");
 		_textViewBedeutungen.setText(sb.toString());
-		
 	}
 
 	
@@ -140,6 +138,7 @@ public class MainActivity extends Activity
 	 * @param message Anzuzeigende Nachricht
 	 */
 	protected void showToast(String message) {
+
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 

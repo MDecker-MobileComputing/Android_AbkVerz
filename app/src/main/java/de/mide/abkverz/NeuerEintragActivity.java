@@ -42,6 +42,7 @@ public class NeuerEintragActivity extends Activity
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_neuer_eintrag);
 		
@@ -50,10 +51,10 @@ public class NeuerEintragActivity extends Activity
 		
 		
 		// *** Referenzen von UI-Element in Member-Variablen speichern ***
-		_buttonEinfuegen   = (Button)   findViewById(R.id.buttonEintragEinfuegen );
-		_buttonZurueck     = (Button)   findViewById(R.id.buttonZurueck          );
-		_editTextAbk       = (EditText) findViewById(R.id.editTextNeueAbk        );
-		_editTextBedeutung = (EditText) findViewById(R.id.editTextNeueBedeutung  );
+		_buttonEinfuegen   = findViewById(R.id.buttonEintragEinfuegen );
+		_buttonZurueck     = findViewById(R.id.buttonZurueck          );
+		_editTextAbk       = findViewById(R.id.editTextNeueAbk        );
+		_editTextBedeutung = findViewById(R.id.editTextNeueBedeutung  );
 
 		
 		// *** Event-Handler für Buttons festlegen ***
@@ -69,6 +70,7 @@ public class NeuerEintragActivity extends Activity
 	 */
 	@Override
 	public void onClick(View view) {
+
 		String errorMessage = null;
 		
 		if (view == _buttonZurueck) {
@@ -84,7 +86,6 @@ public class NeuerEintragActivity extends Activity
 			errorMessage = "Event-Handler-Methode für unerwartetes View-Objekt aufgerufen: " + view;
 			showToast(errorMessage);
 			Log.w(TAG4LOGGING, errorMessage);
-			
 		}
 	}
 	
@@ -94,6 +95,7 @@ public class NeuerEintragActivity extends Activity
 	 * den neuen Eintrag in der DB zu erzeugen
 	 */
 	protected void neuenEintragEinfuegen () {
+
 		String errorMsg     = null;
 		String[] resultStrs = null;
 		
@@ -135,7 +137,6 @@ public class NeuerEintragActivity extends Activity
 			errorMsg = "Exception beim Einfügen neuer Abk+Bedeutung aufgetreten: " + ex;
 			Log.e(TAG4LOGGING, errorMsg );
 		}
-		
 	}
 	
 	
@@ -145,6 +146,7 @@ public class NeuerEintragActivity extends Activity
 	 * @param message Anzuzeigende Nachricht
 	 */
 	protected void showToast(String message) {
+
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 
