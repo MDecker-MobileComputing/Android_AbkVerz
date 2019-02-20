@@ -15,10 +15,9 @@ import android.util.Log;
  * Da diese Klasse von {@link android.database.sqlite.SQLiteOpenHelper} erbt,  
  * beinhaltet dies auch das Erzeugen des Datenbank-Schemas, falls es noch nicht
  * vorhanden sein sollte.
- * <br/><br/>
  * Es wird davon ausgegangen, dass alle Abkürzungen nur aus Großbuchstaben
- * bestehen.
- * <br/><br/>
+ * <br><br>
+ * 
  * Pfad der Datenbank-Datei auf dem Android-Gerät/Emulator:
  * <pre>
  *     /data/data/de.mide.abkverz/databases/abkverz.db
