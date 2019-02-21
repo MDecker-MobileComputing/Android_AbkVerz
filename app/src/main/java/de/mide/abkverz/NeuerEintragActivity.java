@@ -17,7 +17,7 @@ import android.widget.Toast;
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class NeuerEintragActivity extends Activity 
-								  implements IGlobalConstants, OnClickListener {
+                                  implements IGlobalConstants, OnClickListener {
 	
 	/** Hilfs-Objekt für Zugriffe auf Datenbank. */
 	protected DatenbankManager _datenbankManager = null;
@@ -25,7 +25,7 @@ public class NeuerEintragActivity extends Activity
 	/** Button zum Einfügen eines neuen Datensatzes. */
 	protected Button _buttonEinfuegen = null;
 	
-	/** Button für "Abbrechen", wir schließen die Activity */
+	/** Button für "Abbrechen", die Activity wird geschlossen. */
 	protected Button _buttonZurueck = null;
 	
 	/** UI-Element für die Eingabe der neuen Abkürzung. */
@@ -91,12 +91,11 @@ public class NeuerEintragActivity extends Activity
 	
 
 	/**
-	 * Methode um Eingaben des Nutzers auszulesen und
-	 * den neuen Eintrag in der DB zu erzeugen
+	 * Methode um Eingaben des Nutzers auszulesen und den neuen Eintrag in der DB zu erzeugen.
 	 */
 	protected void neuenEintragEinfuegen () {
 
-		String errorMsg     = null;
+		String   errorMsg   = null;
 		String[] resultStrs = null;
 		
 		String abkString    = _editTextAbk.getText().toString().trim();
@@ -123,8 +122,7 @@ public class NeuerEintragActivity extends Activity
 			} else { // Die Abk. ist noch nicht in der Datenbank
 			
 				_datenbankManager.insertGanzNeueAbk(abkString, bedeutString);
-				showToast("Neue Abkürzung in Datenbank eingefügt.");
-				
+				showToast("Neue Abkürzung in Datenbank eingefügt.");				
 			}
 			
 			
