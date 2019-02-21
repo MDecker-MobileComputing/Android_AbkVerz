@@ -145,10 +145,10 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	 * Such nach Bedeutungen für die als Parameter übergebene Abkürzung
 	 * 
 	 * @param abk Die Abkürzung, nach der gesucht werden soll; darf nicht leer sein
-	 *            und darf keine Leerzeichen enthalten
+	 *            und darf keine Leerzeichen enthalten.
      *
 	 * @return Array der gefundenen Bedeutungen; ist Array der Länge 0, wenn nichts
-	 *         gefunden
+	 *         gefunden.
 	 */	
 	@SuppressLint("DefaultLocale")
 	public String[] sucheNachAbk(String abk) throws SQLException {
@@ -167,8 +167,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 		// *** Ergebnis der Query auswerten ***
 		int resultRows = cursor.getCount();
 		if (resultRows == 0) { return new String[]{}; }
-			
-		
+
 		
 		String[] resultStrings = new String[resultRows];
 				
@@ -184,7 +183,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	
 	/**
 	 * Bedeutung für bisher in der Datenbank noch nicht vorhandene Abkürzung
-	 * hinzufügen
+	 * hinzufügen.
 	 *
 	 * @param abkString Die neue Abkürzung, darf nicht leer sein.
          *
@@ -207,11 +206,11 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	
 	/**
 	 * Fügt für eine bereits in der Datenbank stehende Abkürzung die erste oder eine weitere
-	 * Bedeutung hinzu
+	 * Bedeutung hinzu.
 	 *  
-	 * @param abkString Abkürzung, muss schon in Datenbank gespeichert sein
+	 * @param abkString Abkürzung, muss schon in Datenbank gespeichert sein.
          *
-	 * @param bedeutung Die erste oder eine weitere Bedeutung für diese Abkürzung
+	 * @param bedeutung Die erste oder eine weitere Bedeutung für diese Abkürzung.
 	 */
 	public void insertBedeutung(String abkString, String bedeutung) throws SQLException {
 		
