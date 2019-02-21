@@ -25,16 +25,16 @@ public class MainActivity extends Activity
 	/** Hilfs-Objekt für Zugriffe auf Datenbank */
 	protected DatenbankManager _datenbankManager = null;
 	
-	/** Eingabefeld mit Abk., nach der gesucht werden soll */
+	/** Eingabefeld mit Abk., nach der gesucht werden soll. */
 	protected EditText _textEditAbkZumSuchen = null;
 	
-	/** Button, mit dem die Suche nach einer Abk. gestartet wird */
+	/** Button, mit dem die Suche nach einer Abk. gestartet wird. */
 	protected Button _buttonAbkSuche = null;
 	
-	/** Button, mit dem Activity zum Anlegen eines neuen Eintrags aufgerufen wird */
+	/** Button, mit dem Activity zum Anlegen eines neuen Eintrags aufgerufen wird. */
 	protected Button _buttonNeuerEintrag = null;
 		
-	/** TextView-Element, mit dem die für eine Abkürzung gefundene Bedeutungen angezeigt werden */
+	/** TextView-Element, mit dem die für eine Abkürzung gefundene Bedeutungen angezeigt werden. */
 	protected TextView _textViewBedeutungen = null;
 	
 	
@@ -75,17 +75,16 @@ public class MainActivity extends Activity
 	public void onClick(View view) {
 		
 		if (view == _buttonAbkSuche) {
-			
+
 			sucheNachAbk();
-			
-		}
-		else if (view == _buttonNeuerEintrag) {
-			
+
+		} else if (view == _buttonNeuerEintrag) {		
+
 			Intent intent = new Intent(this, NeuerEintragActivity.class);
 			startActivity(intent);
-			
+
 		} else {
-			
+
 			String errorMsg = "Unerwartetes View-Element hat onClick-Event ausgelöst: " + view;
 			Log.w(TAG4LOGGING, errorMsg);
 			showToast(errorMsg);
