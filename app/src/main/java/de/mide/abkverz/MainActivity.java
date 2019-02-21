@@ -11,15 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 /**
  * Beispiel-App zur Nutzung der in Android eingebauten SQLite-Datenbank. 
+ * Mit der App können Bedeutungen für Abkürzungen abgespeichert und gesucht werden.
  * <br><br>
- *
  *
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class MainActivity extends Activity 
-						  implements IGlobalConstants, OnClickListener {
+			  implements IGlobalConstants, OnClickListener {
  
 	/** Hilfs-Objekt für Zugriffe auf Datenbank */
 	protected DatenbankManager _datenbankManager = null;
@@ -97,7 +98,7 @@ public class MainActivity extends Activity
 	 */
 	protected void sucheNachAbk() {
 
-		String errorMsg = null;
+		String   errorMsg    = null;
 		String[] bedeutungen = null;
 				
 		String suchString = _textEditAbkZumSuchen.getText().toString().trim();
@@ -126,8 +127,9 @@ public class MainActivity extends Activity
 	
 		// *** Ergebnis-Treffer darstellen ***
 		StringBuffer sb = new StringBuffer();
-		for(String bedeutung: bedeutungen)
+		for(String bedeutung: bedeutungen) {
 			sb.append(bedeutung).append("\n");
+		}
 		_textViewBedeutungen.setText(sb.toString());
 	}
 
