@@ -53,14 +53,14 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	/**
 	 * Konstruktor, ruft den Super-Konstruktor auf und erzeugt die PreparedStatements.
 	 * 
-	 * @param context Selbstreferenz auf Activity, die dieses Objekt erzeugt hat
+	 * @param context  Selbstreferenz auf Activity, die dieses Objekt erzeugt hat
 	 */
 	public DatenbankManager(Context context) {
 
 		super(context,
 		      "abkverz.db",  // Name der DB 
 		      null,          // Default-CursorFactory verwenden
-		      1);            // Versions-Nummer
+		      1);            // Versions-Nummer des Datenbank-Schemas
 
 
 		// *** Prepared Statements erzeugen ***
@@ -80,7 +80,8 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	
 	
 	/**
-	 * Abstrakte Methode aus <i>SQLiteOpenHelper</i>, muss also überschrieben werden.
+	 * Abstrakte Methode aus {@link android.database.sqlite.SQLiteOpenHelper}, muss also
+	 * überschrieben werden damit die vorliegende Klasse nicht auch wieder abstrakt ist.
 	 *
 	 * Legt mit "CREATE TABLE" und "CREATE INDEX" das Datenbankschema an, wenn noch
 	 * nicht verhanden (z.B. beim ersten Start der App nach Installation).
@@ -128,10 +129,10 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
 
 	/**
-	 * Zweite abstrakte Methode aus <i>SQLiteOpenHelper</i>, 
-	 * lassen wir aber leer. In dieser Methode könnte man
-	 * z.B. für eine neue Version nicht mehr benötigte Tabelle
-	 * mit "DROP TABLE" löschen.
+	 * Zweite abstrakte Methode aus {@link android.database.sqlite.SQLiteOpenHelper},
+	 * lassen wir aber leer. In dieser Methode könnte man z.B. für eine neue Version
+	 * der App zu einer bestehenden Tabelle neue Spalte hinzufügen, oder ganz neue
+     * Tabellen für ganz neue Funktionen.
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -144,11 +145,11 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	/**
 	 * Such nach Bedeutungen für die als Parameter übergebene Abkürzung
 	 * 
-	 * @param abk Die Abkürzung, nach der gesucht werden soll; darf nicht leer sein
-	 *            und darf keine Leerzeichen enthalten.
+	 * @param abk  Die Abkürzung, nach der gesucht werden soll; darf nicht leer sein
+	 *             und darf keine Leerzeichen enthalten.
      *
-	 * @return Array der gefundenen Bedeutungen; ist Array der Länge 0, wenn nichts
-	 *         gefunden.
+	 * @return  Array der gefundenen Bedeutungen; ist Array der Länge 0, wenn nichts
+	 *          gefunden.
 	 */	
 	@SuppressLint("DefaultLocale")
 	public String[] sucheNachAbk(String abk) throws SQLException {
@@ -185,9 +186,9 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	 * Bedeutung für bisher in der Datenbank noch nicht vorhandene Abkürzung
 	 * hinzufügen.
 	 *
-	 * @param abkString Die neue Abkürzung, darf nicht leer sein.
-         *
-	 * @param bedeutung Die neue Bedeutung, darf nicht leer sein.
+	 * @param abkString  Die neue Abkürzung, darf nicht leer sein.
+	 *
+	 * @param bedeutung  Die neue Bedeutung, darf nicht leer sein.
 	 */
 	public void insertGanzNeueAbk(String abkString, String bedeutung) throws SQLException {
 		
@@ -208,9 +209,9 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 	 * Fügt für eine bereits in der Datenbank stehende Abkürzung die erste oder eine weitere
 	 * Bedeutung hinzu.
 	 *  
-	 * @param abkString Abkürzung, muss schon in Datenbank gespeichert sein.
+	 * @param abkString  Abkürzung, muss schon in Datenbank gespeichert sein.
          *
-	 * @param bedeutung Die erste oder eine weitere Bedeutung für diese Abkürzung.
+	 * @param bedeutung  Die erste oder eine weitere Bedeutung für diese Abkürzung.
 	 */
 	public void insertBedeutung(String abkString, String bedeutung) throws SQLException {
 		
