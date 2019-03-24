@@ -20,7 +20,7 @@ import android.widget.Toast;
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class MainActivity extends Activity 
-			  implements IGlobalConstants, OnClickListener {
+			               implements IGlobalConstants, OnClickListener {
  
 	/** Hilfs-Objekt für Zugriffe auf Datenbank */
 	protected DatenbankManager _datenbankManager = null;
@@ -69,7 +69,7 @@ public class MainActivity extends Activity
 	/**
 	 * Event-Handler-Methode für Buttons
 	 * 
-	 * @param view UI-Element, das Event erzeugt hat, sollte ein Button sein 
+	 * @param view  UI-Element, das Event erzeugt hat, sollte ein Button sein
 	 */
 	@Override
 	public void onClick(View view) {

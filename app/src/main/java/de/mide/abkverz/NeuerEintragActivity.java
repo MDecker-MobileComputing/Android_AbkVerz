@@ -51,22 +51,22 @@ public class NeuerEintragActivity extends Activity
 		
 		
 		// *** Referenzen von UI-Element in Member-Variablen speichern ***
-		_buttonEinfuegen   = findViewById(R.id.buttonEintragEinfuegen );
-		_buttonZurueck     = findViewById(R.id.buttonZurueck          );
-		_editTextAbk       = findViewById(R.id.editTextNeueAbk        );
-		_editTextBedeutung = findViewById(R.id.editTextNeueBedeutung  );
+		_buttonEinfuegen   = findViewById( R.id.buttonEintragEinfuegen );
+		_buttonZurueck     = findViewById( R.id.buttonZurueck          );
+		_editTextAbk       = findViewById( R.id.editTextNeueAbk        );
+		_editTextBedeutung = findViewById( R.id.editTextNeueBedeutung  );
 
 		
 		// *** Event-Handler für Buttons festlegen ***
 		_buttonEinfuegen.setOnClickListener(this);
-		_buttonZurueck.setOnClickListener(this);
+		_buttonZurueck.setOnClickListener  (this);
 	}
 
 	
 	/**
 	 * Event-Handler für Buttons.
 	 * 
-	 * @param view Einer der beiden Buttons, der das Event ausgelöst hat
+	 * @param view  Einer der beiden Buttons, der das Event ausgelöst hat
 	 */
 	@Override
 	public void onClick(View view) {
