@@ -177,6 +177,8 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 			resultStrings[counter] = cursor.getString(0);
 			counter++;
 		}
+
+		cursor.close();
 		
 		return resultStrings;
 	}
