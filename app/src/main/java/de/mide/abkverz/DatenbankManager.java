@@ -171,13 +171,13 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
 
         // *** Ergebnis der Query auswerten ***
-        int resultRows = cursor.getCount();
-        if (resultRows == 0) {
+        int anzahlErgebnisZeilen = cursor.getCount();
+        if (anzahlErgebnisZeilen == 0) {
             return new String[]{};
         }
 
 
-        String[] resultStrings = new String[resultRows];
+        String[] resultStrings = new String[anzahlErgebnisZeilen];
 
         int counter = 0;
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
