@@ -123,7 +123,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
             Log.v(TAG4LOGGING, "Beispiel-Datensätze eingefügt.");
 
         } catch (SQLException ex) {
-            Log.e(TAG4LOGGING, "Datenbank-Exception beim Anlegen von Schema aufgetreten: " + ex);
+            Log.e(TAG4LOGGING, "Exception beim Anlegen von DB-Schema aufgetreten: " + ex);
         }
     }
 
