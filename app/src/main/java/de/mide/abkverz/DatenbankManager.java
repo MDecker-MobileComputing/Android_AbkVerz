@@ -173,6 +173,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         // *** Ergebnis der Query auswerten ***
         int anzahlErgebnisZeilen = cursor.getCount();
         if (anzahlErgebnisZeilen == 0) {
+
             return new String[]{};
         }
 
@@ -181,6 +182,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
         int counter = 0;
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+
             resultStrings[counter] = cursor.getString(0);
             counter++;
         }
@@ -204,8 +206,10 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         abkString = abkString.toUpperCase();
 
         _statementInsertNeuAbk.bindString(1, abkString); // Wert für Platzhalter "?"
+
         long idOfNewRow = _statementInsertNeuAbk.executeInsert();
         if (idOfNewRow == -1 ) {
+
             throw new SQLException("Einfügen der neuen Abkürzung '" + abkString +
                                    "' ist fehlgeschlagen.");
         }
@@ -228,8 +232,10 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
         _statementInsertBedeutung.bindString(1, bedeutung);
         _statementInsertBedeutung.bindString(2, abkString);
+
         long idOfNewRow = _statementInsertBedeutung.executeInsert();
         if (idOfNewRow == -1 ) {
+
             throw new SQLException("Einfügen der neuen Bedeutung '" + bedeutung +
                            "' ist fehlgeschlagen.");
         }

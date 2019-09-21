@@ -100,11 +100,14 @@ public class NeuerEintragActivity extends Activity
 		
 		String abkString    = _editTextAbk.getText().toString().trim();
 		if (abkString.length() == 0) {
+
 			showToast("Bitte Abkürzung eingeben!");
 			return;
-		}				
+		}
+
 		String bedeutString = _editTextBedeutung.getText().toString().trim();
 		if (bedeutString.length() == 0) {
+
 			showToast("Bitte auch Bedeutung für die Abkürzung eingeben!");
 			return;
 		}
@@ -132,6 +135,7 @@ public class NeuerEintragActivity extends Activity
 			
 		}
 		catch (Exception ex) {
+
 			errorMsg = "Exception beim Einfügen neuer Abk+Bedeutung aufgetreten: " + ex;
 			Log.e(TAG4LOGGING, errorMsg );
 		}

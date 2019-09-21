@@ -102,6 +102,7 @@ public class MainActivity extends Activity
 				
 		String suchString = _textEditAbkZumSuchen.getText().toString().trim();
 		if (suchString.length() == 0) {
+
 			showToast("Bitte zulässige Abkürzung zum Suchen eingeben!");
 			return;
 		}
@@ -111,6 +112,7 @@ public class MainActivity extends Activity
 			bedeutungen = _datenbankManager.sucheNachAbk(suchString);
 		}
 		catch (Exception ex) {
+
 			errorMsg = "Exception bei suchNachAbk() aufgetreten: " + ex;
 			showToast(errorMsg);
 			Log.e(TAG4LOGGING, errorMsg);
@@ -119,6 +121,7 @@ public class MainActivity extends Activity
 		
 		  
 		if (bedeutungen == null || bedeutungen.length == 0) {
+
 			_textViewBedeutungen.setText("");
 			showToast("Abkürzung '" + suchString + "' nicht gefunden.");
 			return;
@@ -127,6 +130,7 @@ public class MainActivity extends Activity
 		// *** Ergebnis-Treffer darstellen ***
 		StringBuffer sb = new StringBuffer();
 		for(String bedeutung: bedeutungen) {
+
 			sb.append(bedeutung).append("\n");
 		}
 		_textViewBedeutungen.setText(sb.toString());
