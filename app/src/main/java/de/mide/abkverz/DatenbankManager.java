@@ -38,20 +38,20 @@ import android.util.Log;
 public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstants {
 
     /**
-     * Prepared SQL-Statement, um eine in der DB bisher noch nicht bekannt Abkürzung
+     * Prepared Statement, um eine in der DB bisher noch nicht bekannt Abkürzung
      * samt Bedeutung einzufügen.
      */
     protected SQLiteStatement _statementInsertNeuAbk = null;
 
     /**
-     * Prepared SQL-Statement, um zu einer bereits in der DB eingetragenen
+     * Prepared Statement, um zu einer bereits in der DB eingetragenen
      * Abkürzung die erste oder eine weitere Bedeutung einzutragen.
      */
     protected SQLiteStatement _statementInsertBedeutung = null;
 
 
     /**
-     * Konstruktor, ruft den Super-Konstruktor auf und erzeugt die PreparedStatements.
+     * Konstruktor, ruft den Super-Konstruktor auf und erzeugt die Prepared Statements.
      *
      * @param context  Selbstreferenz auf Activity, die dieses Objekt erzeugt hat
      */
@@ -63,7 +63,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
               1 );           // Versions-Nummer des Datenbank-Schemas
 
 
-        // *** Prepared Statements erzeugen ***
+        // Prepared Statements erzeugen
         SQLiteDatabase db = getReadableDatabase();
 
         _statementInsertNeuAbk =
@@ -91,14 +91,14 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
         try {
 
-            // *** Erste Tabelle mit Index anlegen ***
+            // Erste Tabelle mit Index anlegen
             db.execSQL( "CREATE TABLE abkuerzungen ( "                   +
                         "abk_id     INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "abkuerzung TEXT NOT NULL ) "
             );
             db.execSQL( "CREATE INDEX mein_index_1 ON abkuerzungen (abkuerzung)" );
 
-            // *** Zweite Tabelle mit Index anlegen ***
+            // Zweite Tabelle mit Index anlegen
             db.execSQL( "CREATE TABLE bedeutungen (                             " +
                         "abk_id    INTEGER,                                     " +
                         "bedeutung TEXT NOT NULL,                               " +
@@ -109,7 +109,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
             Log.i(TAG4LOGGING, "Datenbankschema angelegt.");
 
-            // *** Wir fügen noch ein paar Beispiel-Daten in die neuen Tabellen ein ***
+            // Wir fügen noch ein paar Beispiel-Daten in die neuen Tabellen ein
             db.execSQL( "INSERT INTO abkuerzungen VALUES(1,'ADB')" );
             db.execSQL( "INSERT INTO abkuerzungen VALUES(2,'KSC')" );
             db.execSQL( "INSERT INTO abkuerzungen VALUES(3,'HCI')" );
@@ -123,6 +123,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
             Log.v(TAG4LOGGING, "Beispiel-Datensätze eingefügt.");
 
         } catch (SQLException ex) {
+
             Log.e(TAG4LOGGING, "Exception beim Anlegen von DB-Schema aufgetreten: " + ex);
         }
     }
@@ -170,7 +171,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
                          null ); // die "selectionArgs" brauchen wir hier nicht
 
 
-        // *** Ergebnis der Query auswerten ***
+        // Ergebnis der Query auswerten
         int anzahlErgebnisZeilen = cursor.getCount();
         if (anzahlErgebnisZeilen == 0) {
 
