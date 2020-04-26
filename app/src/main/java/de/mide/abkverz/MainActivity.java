@@ -14,13 +14,14 @@ import android.widget.Toast;
 
 /**
  * Beispiel-App zur Nutzung der in Android eingebauten SQLite-Datenbank. 
- * Mit der App können Bedeutungen für Abkürzungen abgespeichert und gesucht werden.
+ * Mit der App können Bedeutungen für Abkürzungen abgespeichert und gesucht werden,
+ * wobei eine Abkürzung auch mehrere Bedeutungen haben kann.
  * <br><br>
  *
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class MainActivity extends Activity 
-			               implements IGlobalConstants, OnClickListener {
+		                  implements IGlobalConstants, OnClickListener {
  
 	/** Hilfs-Objekt für Zugriffe auf Datenbank */
 	protected DatenbankManager _datenbankManager = null;
@@ -67,7 +68,7 @@ public class MainActivity extends Activity
 
 
 	/**
-	 * Event-Handler-Methode für Buttons
+	 * Event-Handler-Methode für die beiden Buttons.
 	 * 
 	 * @param view  UI-Element, das Event erzeugt hat, sollte ein Button sein
 	 */

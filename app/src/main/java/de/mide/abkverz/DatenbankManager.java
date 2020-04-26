@@ -209,7 +209,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         _statementInsertNeuAbk.bindString(1, abkString); // Wert für Platzhalter "?"
 
         long idOfNewRow = _statementInsertNeuAbk.executeInsert();
-        if (idOfNewRow == -1 ) {
+        if (idOfNewRow == -1) {
 
             throw new SQLException("Einfügen der neuen Abkürzung '" + abkString +
                                    "' ist fehlgeschlagen.");
@@ -238,7 +238,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         if (idOfNewRow == -1 ) {
 
             throw new SQLException("Einfügen der neuen Bedeutung '" + bedeutung +
-                           "' ist fehlgeschlagen.");
+                                   "' ist fehlgeschlagen.");
         }
     }
 
