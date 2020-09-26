@@ -4,13 +4,15 @@ CREATE TABLE abkuerzungen (
   abkuerzung TEXT    NOT NULL
 );
 
-CREATE INDEX mein_index_1 ON abkuerzungen(abkuerzung);
+CREATE INDEX abkuerzung_index_1 ON abkuerzungen(abkuerzung);
 
 
 CREATE TABLE bedeutungen (
-  abk_id    INTEGER         ,
-  bedeutung TEXT    NOT NULL,
-  FOREIGN KEY (abk_id) REFERENCES abkuerzungen(abk_id)
+  bedeutung_id INTEGER PRIMARY KEY,
+  bedeutung    TEXT    NOT NULL   ,  
+  abkuerzung   INTEGER            ,
+
+  FOREIGN KEY (abkuerzung) REFERENCES abkuerzungen(abk_id)
 );
 
-CREATE INDEX mein_index_2 ON bedeutungen(abk_id);
+CREATE INDEX bedeutungen_index_1 ON bedeutungen(abkuerzung);
