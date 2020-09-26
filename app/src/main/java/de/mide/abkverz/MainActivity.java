@@ -39,11 +39,9 @@ public class MainActivity extends Activity
 	protected TextView _textViewBedeutungen = null;
 	
 	
-	/**
-	 * Lifecycle-Methode.
-	 * Fragt Referenzen auf UI-Elemente ab und speichert sie in Member-Variablen.
-	 * Erzeugt außerdem Hilfs-Objekt für Datenbank-Zugriff.
-	 */
+    /**
+     * Lifecycle-Methode zur Initialisierung des Activity-Objekts.
+     */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
