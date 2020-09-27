@@ -73,7 +73,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
         _statementInsertBedeutung =
             db.compileStatement(
-                "INSERT INTO bedeutungen (abk_id, bedeutung) " +
+                "INSERT INTO bedeutungen (abkuerzung, bedeutung) " +
                 "  SELECT abk_id, ? FROM abkuerzungen WHERE abkuerzung=?"
             );
     }
@@ -91,34 +91,32 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
         try {
 
-            // Erste Tabelle mit Index anlegen
             db.execSQL( "CREATE TABLE abkuerzungen ( "                   +
                         "abk_id     INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "abkuerzung TEXT NOT NULL ) "
             );
-            db.execSQL( "CREATE INDEX mein_index_1 ON abkuerzungen (abkuerzung)" );
+            db.execSQL( "CREATE INDEX abkuerzung_index_1 ON abkuerzungen(abkuerzung)" );
 
-            // Zweite Tabelle mit Index anlegen
             db.execSQL( "CREATE TABLE bedeutungen (                             " +
-                        "abk_id    INTEGER,                                     " +
-                        "bedeutung TEXT NOT NULL,                               " +
-                        "FOREIGN KEY (abk_id) REFERENCES abkuerzungen(abk_id) ) "
+                        "bedeutung_id INTEGER PRIMARY KEY,                      " +
+                        "bedeutung    TEXT NOT NULL,                            " +
+                        "abkuerzung   INTEGER,                                  " +
+                        "FOREIGN KEY (abkuerzung) REFERENCES abkuerzungen(abk_id) ) "
             );
-
-            db.execSQL( "CREATE INDEX mein_index_2 ON bedeutungen (abk_id)" );
+            db.execSQL( "CREATE INDEX bedeutungen_index_1 ON abkuerzungen(abkuerzung)" );
 
             Log.i(TAG4LOGGING, "Datenbankschema angelegt.");
 
             // Wir fügen noch ein paar Beispiel-Daten in die neuen Tabellen ein
-            db.execSQL( "INSERT INTO abkuerzungen VALUES(1,'ADB')" );
-            db.execSQL( "INSERT INTO abkuerzungen VALUES(2,'KSC')" );
-            db.execSQL( "INSERT INTO abkuerzungen VALUES(3,'HCI')" );
+            db.execSQL( "INSERT INTO abkuerzungen (abk_id, abkuerzung) VALUES( 1,'ADB')" );
+            db.execSQL( "INSERT INTO abkuerzungen (abk_id, abkuerzung) VALUES( 2,'KSC')" );
+            db.execSQL( "INSERT INTO abkuerzungen (abk_id, abkuerzung) VALUES( 3,'HCI')" );
 
-            db.execSQL( "INSERT INTO bedeutungen VALUES(1,'Android Debug Bridge'      )" );
-            db.execSQL( "INSERT INTO bedeutungen VALUES(2,'Karlsruher Sport-Club'     )" );
-            db.execSQL( "INSERT INTO bedeutungen VALUES(2,'Kennedy Space Center'      )" );
-            db.execSQL( "INSERT INTO bedeutungen VALUES(3,'Human-Computer Interaction')" );
-            db.execSQL( "INSERT INTO bedeutungen VALUES(3,'Hash Collision Index'      )" );
+            db.execSQL( "INSERT INTO bedeutungen (abkuerzung, bedeutung) VALUES( 1, 'Android Debug Bridge'      )" );
+            db.execSQL( "INSERT INTO bedeutungen (abkuerzung, bedeutung) VALUES( 2, 'Karlsruher Sport-Club'     )" );
+            db.execSQL( "INSERT INTO bedeutungen (abkuerzung, bedeutung) VALUES( 2, 'Kennedy Space Center'      )" );
+            db.execSQL( "INSERT INTO bedeutungen (abkuerzung, bedeutung) VALUES( 3, 'Human-Computer Interaction')" );
+            db.execSQL( "INSERT INTO bedeutungen (abkuerzung, bedeutung) VALUES( 3, 'Hash Collision Index'      )" );
 
             Log.v(TAG4LOGGING, "Beispiel-Datensätze eingefügt.");
 
@@ -149,13 +147,13 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
 
     /**
-     * Such nach Bedeutungen für die als Parameter übergebene Abkürzung
+     * Such nach Bedeutungen für die als Argument {@code abk} übergebene Abkürzung.
      *
      * @param abk  Die Abkürzung, nach der gesucht werden soll; darf nicht leer sein
      *             und darf keine Leerzeichen enthalten.
      *
      * @return  Array der gefundenen Bedeutungen; ist Array der Länge 0, wenn nichts
-     *          gefunden.
+     *          gefunden, aber nicht {@code null}.
      */
     @SuppressLint("DefaultLocale")
     public String[] sucheNachAbk(String abk) throws SQLException {
@@ -165,11 +163,10 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery( "SELECT bedeutung " +
                          "  FROM abkuerzungen, bedeutungen " +
-                         "  WHERE abkuerzungen.abk_id = bedeutungen.abk_id " +
-                         "   AND abkuerzung = '" + abk + "'" +
-                         "  ORDER BY bedeutungen.bedeutung ASC",
+                         "  WHERE abkuerzungen.abk_id = bedeutungen.abkuerzung " +
+                         "   AND abkuerzungen.abkuerzung = '" + abk + "'" +
+                         "  ORDER BY abkuerzungen.abkuerzung ASC, bedeutung ASC",
                          null ); // die "selectionArgs" brauchen wir hier nicht
-
 
         // Ergebnis der Query auswerten
         int anzahlErgebnisZeilen = cursor.getCount();
