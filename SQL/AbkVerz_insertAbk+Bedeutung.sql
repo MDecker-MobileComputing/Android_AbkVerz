@@ -8,3 +8,5 @@ INSERT INTO bedeutungen (abkuerzung, bedeutung)
             SELECT abk_id, 'Advanced RISC Machines' 
               FROM abkuerzungen 
              WHERE abkuerzung='ARM';
+
+
