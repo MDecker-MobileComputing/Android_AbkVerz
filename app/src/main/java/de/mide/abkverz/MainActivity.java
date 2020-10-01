@@ -72,21 +72,22 @@ public class MainActivity extends Activity
 	 */
 	@Override
 	public void onClick(View view) {
-		
-		if (view == _buttonAbkSuche) {
-
-			sucheNachAbk();
-
-		} else if (view == _buttonNeuerEintrag) {		
-
-			Intent intent = new Intent(this, NeuerEintragActivity.class);
-			startActivity(intent);
-
-		} else {
-
-			String errorMsg = "Unerwartetes View-Element hat onClick-Event ausgelöst: " + view;
-			Log.w(TAG4LOGGING, errorMsg);
-			showToast(errorMsg);
+	
+		switch(view)
+		{
+			case _buttonAbkSuche:
+				sucheNachAbk();
+				break;
+			
+			case _buttonNeuerEintrag:
+				Intent intent = new Intent(this, NeuerEintragActivity.class);
+				startActivity(intent);
+				break;
+				
+			default:
+				String errorMsg = "Unerwartetes View-Element hat onClick-Event ausgelöst: " + view;
+				Log.i(TAG4LOGGING, errorMsg);
+				showToast(errorMsg);
 		}
 	}
 	
@@ -143,7 +144,7 @@ public class MainActivity extends Activity
 	 */
 	protected void showToast(String message) {
 
-		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}
 
 };
