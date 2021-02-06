@@ -174,10 +174,8 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
             return new String[]{};
         }
-
-
+        
         String[] resultStrings = new String[anzahlErgebnisZeilen];
-
         int counter = 0;
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
