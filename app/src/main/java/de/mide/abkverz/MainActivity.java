@@ -21,15 +21,15 @@ import android.widget.Toast;
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class MainActivity extends Activity 
-		                  implements IGlobalConstants, OnClickListener {
+		          implements IGlobalConstants, OnClickListener {
  
-	/** Hilfs-Objekt für Zugriffe auf Datenbank */
+	/** Hilfs-Objekt für Zugriffe auf Datenbank. */
 	protected DatenbankManager _datenbankManager = null;
 	
-	/** Eingabefeld mit Abk., nach der gesucht werden soll. */
+	/** Eingabefeld mit Abkürzung, nach der gesucht werden soll. */
 	protected EditText _textEditAbkZumSuchen = null;
 	
-	/** Button, mit dem die Suche nach einer Abk. gestartet wird. */
+	/** Button, mit dem die Suche nach einer Abkürzung gestartet wird. */
 	protected Button _buttonAbkSuche = null;
 	
 	/** Button, mit dem Activity zum Anlegen eines neuen Eintrags aufgerufen wird. */
@@ -39,9 +39,9 @@ public class MainActivity extends Activity
 	protected TextView _textViewBedeutungen = null;
 	
 	
-    /**
-     * Lifecycle-Methode zur Initialisierung des Activity-Objekts.
-     */
+       /**
+        * Lifecycle-Methode zur Initialisierung des Activity-Objekts.
+        */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
