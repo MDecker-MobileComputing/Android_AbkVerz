@@ -14,6 +14,6 @@ package de.mide.abkverz;
  */
 public interface IGlobalConstants {
 
-	public static final String TAG4LOGGING ="abkverz";
-	
+    public static final String TAG4LOGGING ="abkverz";
+    
 };
