@@ -3,7 +3,6 @@
 
     <string name="app_name">Abk-Verz</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="textedit_hint_abk_suche">Zu suchende Abk.</string>
     <string name="button_label_abk_suche">Abk. suchen</string>
     <string name="button_label_eintrag_anlegen">Neuen Eintrag anlegen</string>
