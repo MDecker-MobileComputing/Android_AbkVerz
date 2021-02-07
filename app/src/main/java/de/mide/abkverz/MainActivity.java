@@ -39,9 +39,9 @@ public class MainActivity extends Activity
     protected TextView _textViewBedeutungen = null;
     
     
-       /**
-        * Lifecycle-Methode zur Initialisierung des Activity-Objekts.
-        */
+    /**
+     * Lifecycle-Methode zur Initialisierung des Activity-Objekts.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
