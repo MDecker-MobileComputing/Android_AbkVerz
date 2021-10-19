@@ -58,7 +58,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
     public DatenbankManager(Context context) {
 
         super(context,
-              "abkverz.db",  // Name der DB
+              "abkverz.db",  // Name der DB-Datei
               null,          // Default-CursorFactory verwenden
               1 );           // Versions-Nummer des Datenbank-Schemas
 
@@ -172,6 +172,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         int anzahlErgebnisZeilen = cursor.getCount();
         if (anzahlErgebnisZeilen == 0) {
 
+            cursor.close();
             return new String[]{};
         }
         
