@@ -11,5 +11,5 @@
     <string name="title_activity_neuer_eintrag">Anlegen eines neuen Eintrages</string>
     <string name="textedit_hint_abk_neu">Neue Abk.</string>
     <string name="textedit_hint_bedeutung_neu">Bedeutung der neuen Abk.</string>
-    
+
 </resources>
