@@ -16,25 +16,25 @@ import android.widget.Toast;
  *
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
-public class NeuerEintragActivity extends Activity 
+public class NeuerEintragActivity extends Activity
                                   implements IGlobalConstants, OnClickListener {
-    
+
     /** Hilfs-Objekt für Zugriffe auf Datenbank. */
     protected DatenbankManager _datenbankManager = null;
-    
+
     /** Button zum Einfügen eines neuen Datensatzes. */
     protected Button _buttonEinfuegen = null;
-    
+
     /** Button für "Abbrechen", die Activity wird geschlossen. */
     protected Button _buttonZurueck = null;
-    
+
     /** UI-Element für die Eingabe der neuen Abkürzung. */
     protected EditText _editTextAbk = null;
-    
+
     /** UI-Element für die Eingabe der neuen Bedeutung. */
     protected EditText _editTextBedeutung = null;
-    
-    
+
+
     /**
      * Lifecycle-Methode zur Initialisierung des Activity-Objekts.
      */
@@ -43,50 +43,50 @@ public class NeuerEintragActivity extends Activity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neuer_eintrag);
-        
+
         // *** Datenbank-Manager-Objekt erzeugen ***
         _datenbankManager = new DatenbankManager(this);
-        
-        
+
+
         // *** Referenzen von UI-Element in Member-Variablen speichern ***
         _buttonEinfuegen   = findViewById( R.id.buttonEintragEinfuegen );
         _buttonZurueck     = findViewById( R.id.buttonZurueck          );
         _editTextAbk       = findViewById( R.id.editTextNeueAbk        );
         _editTextBedeutung = findViewById( R.id.editTextNeueBedeutung  );
 
-        
+
         // *** Event-Handler für Buttons festlegen ***
         _buttonEinfuegen.setOnClickListener(this);
         _buttonZurueck.setOnClickListener  (this);
     }
 
-    
+
     /**
      * Event-Handler für Buttons.
-     * 
+     *
      * @param view  Einer der beiden Buttons, der das Event ausgelöst hat
      */
     @Override
     public void onClick(View view) {
 
         String errorMessage = null;
-        
+
         if (view == _buttonZurueck) {
-            
+
             finish();
-            
-        } else if (view == _buttonEinfuegen) { 
-                    
+
+        } else if (view == _buttonEinfuegen) {
+
             neuenEintragEinfuegen();
-            
+
         } else {
-            
+
             errorMessage = "Event-Handler-Methode für unerwartetes View-Objekt aufgerufen: " + view;
             showToast(errorMessage);
             Log.w(TAG4LOGGING, errorMessage);
         }
     }
-    
+
 
     /**
      * Methode um Eingaben des Nutzers auszulesen und den neuen Eintrag in der DB zu erzeugen.
@@ -95,7 +95,7 @@ public class NeuerEintragActivity extends Activity
 
         String   errorMsg   = null;
         String[] resultStrs = null;
-        
+
         String abkString    = _editTextAbk.getText().toString().trim();
         if (abkString.length() == 0) {
 
@@ -109,28 +109,28 @@ public class NeuerEintragActivity extends Activity
             showToast("Bitte auch Bedeutung für die Abkürzung eingeben!");
             return;
         }
-        
-        
+
+
         try {
-            
+
             // Zuerst schauen, ob es diese Abk. in der DB schon gibt
             resultStrs = _datenbankManager.sucheNachAbk(abkString);
             if (resultStrs.length > 0) {
-                
+
                 _datenbankManager.insertBedeutung(abkString, bedeutString);
                 showToast("Neue Bedeutung in Datenbank eingefügt.");
-                
+
             } else { // Die Abk. ist noch nicht in der Datenbank
-            
+
                 _datenbankManager.insertGanzNeueAbk(abkString, bedeutString);
-                showToast("Neue Abkürzung in Datenbank eingefügt.");                
+                showToast("Neue Abkürzung in Datenbank eingefügt.");
             }
-            
-            
+
+
             // *** Nach erfolgreicher Einfüge-Operation ***
             _editTextAbk.setText      ("");
             _editTextBedeutung.setText("");
-            
+
         }
         catch (Exception ex) {
 
@@ -138,11 +138,11 @@ public class NeuerEintragActivity extends Activity
             Log.e(TAG4LOGGING, errorMsg );
         }
     }
-    
-    
+
+
     /**
      * Hilfsmethode, um Toast-Texte anzuzeigen (Dauer: Lang)
-     * 
+     *
      * @param message Anzuzeigende Nachricht
      */
     protected void showToast(String message) {

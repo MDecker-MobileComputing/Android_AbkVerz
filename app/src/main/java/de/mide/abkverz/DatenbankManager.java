@@ -58,24 +58,24 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
     public DatenbankManager(Context context) {
 
         super(context,
-              "abkverz.db",  // Name der DB-Datei
-              null,          // Default-CursorFactory verwenden
-              1 );           // Versions-Nummer des Datenbank-Schemas
+                "abkverz.db",  // Name der DB-Datei
+                null,          // Default-CursorFactory verwenden
+                1 );           // Versions-Nummer des Datenbank-Schemas
 
 
         // Prepared Statements erzeugen
         SQLiteDatabase db = getReadableDatabase();
 
         _statementInsertNeuAbk =
-            db.compileStatement(
-                "INSERT INTO abkuerzungen (abkuerzung) VALUES ( ? )" // "?" = Platzhalter
-            );
+                db.compileStatement(
+                        "INSERT INTO abkuerzungen (abkuerzung) VALUES ( ? )" // "?" = Platzhalter
+                );
 
         _statementInsertBedeutung =
-            db.compileStatement(
-                "INSERT INTO bedeutungen (abkuerzung, bedeutung) " +
-                "  SELECT abk_id, ? FROM abkuerzungen WHERE abkuerzung=?"
-            );
+                db.compileStatement(
+                        "INSERT INTO bedeutungen (abkuerzung, bedeutung) " +
+                                "  SELECT abk_id, ? FROM abkuerzungen WHERE abkuerzung=?"
+                );
     }
 
 
@@ -92,16 +92,16 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         try {
 
             db.execSQL( "CREATE TABLE abkuerzungen ( "                   +
-                        "abk_id     INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        "abkuerzung TEXT NOT NULL ) "
+                    "abk_id     INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "abkuerzung TEXT NOT NULL ) "
             );
             db.execSQL( "CREATE INDEX abkuerzung_index_1 ON abkuerzungen(abkuerzung)" );
 
             db.execSQL( "CREATE TABLE bedeutungen (                             " +
-                        "bedeutung_id INTEGER PRIMARY KEY,                      " +
-                        "bedeutung    TEXT NOT NULL,                            " +
-                        "abkuerzung   INTEGER,                                  " +
-                        "FOREIGN KEY (abkuerzung) REFERENCES abkuerzungen(abk_id) ) "
+                    "bedeutung_id INTEGER PRIMARY KEY,                      " +
+                    "bedeutung    TEXT NOT NULL,                            " +
+                    "abkuerzung   INTEGER,                                  " +
+                    "FOREIGN KEY (abkuerzung) REFERENCES abkuerzungen(abk_id) ) "
             );
             db.execSQL( "CREATE INDEX bedeutungen_index_1 ON abkuerzungen(abkuerzung)" );
 
@@ -162,11 +162,11 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery( "SELECT bedeutung " +
-                         "  FROM abkuerzungen, bedeutungen " +
-                         "  WHERE abkuerzungen.abk_id = bedeutungen.abkuerzung " +
-                         "   AND abkuerzungen.abkuerzung = '" + abk + "'" +
-                         "  ORDER BY abkuerzungen.abkuerzung ASC, bedeutung ASC",
-                         null ); // die "selectionArgs" brauchen wir hier nicht
+                        "  FROM abkuerzungen, bedeutungen " +
+                        "  WHERE abkuerzungen.abk_id = bedeutungen.abkuerzung " +
+                        "   AND abkuerzungen.abkuerzung = '" + abk + "'" +
+                        "  ORDER BY abkuerzungen.abkuerzung ASC, bedeutung ASC",
+                null ); // die "selectionArgs" brauchen wir hier nicht
 
         // Ergebnis der Query auswerten
         int anzahlErgebnisZeilen = cursor.getCount();
@@ -175,7 +175,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
             cursor.close();
             return new String[]{};
         }
-        
+
         String[] resultStrings = new String[anzahlErgebnisZeilen];
         int counter = 0;
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
@@ -208,7 +208,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         if (idOfNewRow == -1) {
 
             throw new SQLException("Einfügen der neuen Abkürzung '" + abkString +
-                                   "' ist fehlgeschlagen.");
+                    "' ist fehlgeschlagen.");
         }
 
         insertBedeutung(abkString, bedeutung);
@@ -234,7 +234,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
         if (idOfNewRow == -1 ) {
 
             throw new SQLException("Einfügen der neuen Bedeutung '" + bedeutung +
-                                   "' ist fehlgeschlagen.");
+                    "' ist fehlgeschlagen.");
         }
     }
 
