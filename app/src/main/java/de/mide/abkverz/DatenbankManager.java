@@ -97,7 +97,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
             );
             db.execSQL( "CREATE INDEX abkuerzung_index_1 ON abkuerzungen(abkuerzung)" );
 
-            db.execSQL( "CREATE TABLE bedeutungen (                             " +
+            db.execSQL( "CREATE TABLE bedeutungen (                         " +
                     "bedeutung_id INTEGER PRIMARY KEY,                      " +
                     "bedeutung    TEXT NOT NULL,                            " +
                     "abkuerzung   INTEGER,                                  " +
