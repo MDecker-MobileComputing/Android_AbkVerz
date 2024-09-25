@@ -1,5 +1,4 @@
 
-
 INSERT INTO abkuerzungen (abk_id, abkuerzung) VALUES ( 1, 'ADB' );
 INSERT INTO abkuerzungen (abk_id, abkuerzung) VALUES ( 2, 'KSC' );
 INSERT INTO abkuerzungen (abk_id, abkuerzung) VALUES ( 3, 'HCI' );
