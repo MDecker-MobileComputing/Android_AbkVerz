@@ -17,7 +17,7 @@ import android.widget.Toast;
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
 public class NeuerEintragActivity extends Activity
-                                  implements IGlobalConstants, OnClickListener {
+        implements IGlobalConstants, OnClickListener {
 
     /** Hilfs-Objekt für Zugriffe auf Datenbank. */
     protected DatenbankManager _datenbankManager = null;
@@ -109,7 +109,6 @@ public class NeuerEintragActivity extends Activity
             showToast("Bitte auch Bedeutung für die Abkürzung eingeben!");
             return;
         }
-
 
         try {
 

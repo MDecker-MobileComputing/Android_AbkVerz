@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     tools:context=".NeuerEintragActivity" >
 
     <EditText
@@ -19,8 +20,8 @@
         android:layout_below="@id/editTextNeueAbk"
         android:layout_alignParentLeft="true"
         android:hint="@string/textedit_hint_bedeutung_neu" />
-    
-    
+
+
     <Button
         android:id="@+id/buttonEintragEinfuegen"
         android:layout_width="match_parent"
@@ -28,13 +29,13 @@
         android:layout_below="@id/editTextNeueBedeutung"
         android:layout_marginTop="10dp"
         android:text="@string/button_label_einfuegen" />
-    
-        
+
+
     <Button
         android:id="@+id/buttonZurueck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonEintragEinfuegen"
         android:text="@string/button_label_zurueck"        />
-    
+
 </RelativeLayout>

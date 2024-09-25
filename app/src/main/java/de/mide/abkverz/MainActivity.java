@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 
 /**
  * Beispiel-App zur Nutzung der in Android eingebauten SQLite-Datenbank.
@@ -20,8 +22,8 @@ import android.widget.Toast;
  *
  * This project is licensed under the terms of the BSD 3-Clause License.
  */
-public class MainActivity extends Activity
-        implements IGlobalConstants, OnClickListener {
+public class MainActivity extends AppCompatActivity
+                          implements IGlobalConstants, OnClickListener {
 
     /** Hilfs-Objekt für Zugriffe auf Datenbank. */
     protected DatenbankManager _datenbankManager = null;

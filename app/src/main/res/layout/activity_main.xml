@@ -2,16 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     tools:context=".MainActivity" >
-
 
     <EditText
         android:id="@+id/textEditFuerAbkZumSuchen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"
-        android:hint="@string/textedit_hint_abk_suche" />        
-        
+        android:hint="@string/textedit_hint_abk_suche" />
+
     <Button
         android:id="@+id/buttonStartAbkSuche"
         android:layout_width="wrap_content"
@@ -19,21 +19,20 @@
         android:layout_toRightOf="@id/textEditFuerAbkZumSuchen"
         android:layout_alignBottom="@id/textEditFuerAbkZumSuchen"
         android:text="@string/button_label_abk_suche" />
-    
-    <TextView 
+
+    <TextView
         android:id="@+id/textViewFuerAnzeigeBedeutungen"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@id/textEditFuerAbkZumSuchen"         
+        android:layout_below="@id/textEditFuerAbkZumSuchen"
         android:background="#d0d0d0" />
-    
+
     <Button
         android:id="@+id/buttonNeueAbkEintragen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		android:layout_below="@id/textViewFuerAnzeigeBedeutungen"
-		android:layout_marginTop="5dp" 
-		android:text="@string/button_label_eintrag_anlegen" />
-		        
+        android:layout_below="@id/textViewFuerAnzeigeBedeutungen"
+        android:layout_marginTop="5dp"
+        android:text="@string/button_label_eintrag_anlegen" />
 
 </RelativeLayout>
