@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AbkVerz"
+rootProject.name = "Abk-Verz"
 include ':app'

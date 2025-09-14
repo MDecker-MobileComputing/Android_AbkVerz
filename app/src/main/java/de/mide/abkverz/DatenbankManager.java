@@ -57,7 +57,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
      */
     public DatenbankManager(Context context) {
 
-        super(context,
+        super( context,
                 "abkverz.db",  // Name der DB-Datei
                 null,          // Default-CursorFactory verwenden
                 1 );           // Versions-Nummer des Datenbank-Schemas
@@ -91,7 +91,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
 
         try {
 
-            db.execSQL( "CREATE TABLE abkuerzungen ( "                   +
+            db.execSQL( "CREATE TABLE abkuerzungen ( "               +
                     "abk_id     INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "abkuerzung TEXT NOT NULL ) "
             );
@@ -118,11 +118,11 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
             db.execSQL( "INSERT INTO bedeutungen (abkuerzung, bedeutung) VALUES( 3, 'Human-Computer Interaction')" );
             db.execSQL( "INSERT INTO bedeutungen (abkuerzung, bedeutung) VALUES( 3, 'Hash Collision Index'      )" );
 
-            Log.v(TAG4LOGGING, "Beispiel-Datensätze eingefügt.");
+            Log.v( TAG4LOGGING, "Beispiel-Datensätze eingefügt." );
 
         } catch (SQLException ex) {
 
-            Log.e(TAG4LOGGING, "Exception beim Anlegen von DB-Schema aufgetreten: " + ex);
+            Log.e( TAG4LOGGING, "Exception beim Anlegen von DB-Schema aufgetreten: " + ex );
         }
     }
 
@@ -142,7 +142,7 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        Log.w(TAG4LOGGING, "Leere Implementierung der onUpdate()-Methode in DatenbankManager aufgerufen.");
+        Log.w( TAG4LOGGING, "Leere Implementierung der onUpdate()-Methode in DatenbankManager aufgerufen." );
     }
 
 
@@ -176,11 +176,11 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
             return new String[]{};
         }
 
-        String[] resultStrings = new String[anzahlErgebnisZeilen];
+        String[] resultStrings = new String[ anzahlErgebnisZeilen ];
         int counter = 0;
-        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+        for ( cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext() ) {
 
-            resultStrings[counter] = cursor.getString(0);
+            resultStrings[ counter ] = cursor.getString(0);
             counter++;
         }
 
@@ -198,20 +198,20 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
      *
      * @param bedeutung  Die neue Bedeutung, darf nicht leer sein.
      */
-    public void insertGanzNeueAbk(String abkString, String bedeutung) throws SQLException {
+    public void insertGanzNeueAbk( String abkString, String bedeutung ) throws SQLException {
 
         abkString = abkString.toUpperCase();
 
-        _statementInsertNeuAbk.bindString(1, abkString); // Wert für Platzhalter "?"
+        _statementInsertNeuAbk.bindString(1, abkString ); // Wert für Platzhalter "?"
 
         long idOfNewRow = _statementInsertNeuAbk.executeInsert();
         if (idOfNewRow == -1) {
 
-            throw new SQLException("Einfügen der neuen Abkürzung '" + abkString +
-                    "' ist fehlgeschlagen.");
+            throw new SQLException( "Einfügen der neuen Abkürzung '" + abkString +
+                    "' ist fehlgeschlagen." );
         }
 
-        insertBedeutung(abkString, bedeutung);
+        insertBedeutung( abkString, bedeutung );
     }
 
 
@@ -223,18 +223,18 @@ public class DatenbankManager extends SQLiteOpenHelper implements IGlobalConstan
      *
      * @param bedeutung  Die erste oder eine weitere Bedeutung für diese Abkürzung.
      */
-    public void insertBedeutung(String abkString, String bedeutung) throws SQLException {
+    public void insertBedeutung( String abkString, String bedeutung ) throws SQLException {
 
         abkString = abkString.toUpperCase();
 
-        _statementInsertBedeutung.bindString(1, bedeutung);
-        _statementInsertBedeutung.bindString(2, abkString);
+        _statementInsertBedeutung.bindString( 1, bedeutung );
+        _statementInsertBedeutung.bindString( 2, abkString );
 
         long idOfNewRow = _statementInsertBedeutung.executeInsert();
-        if (idOfNewRow == -1 ) {
+        if ( idOfNewRow == -1 ) {
 
-            throw new SQLException("Einfügen der neuen Bedeutung '" + bedeutung +
-                    "' ist fehlgeschlagen.");
+            throw new SQLException( "Einfügen der neuen Bedeutung '" + bedeutung +
+                    "' ist fehlgeschlagen." );
         }
     }
 

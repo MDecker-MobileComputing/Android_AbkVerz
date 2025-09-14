@@ -2,12 +2,13 @@
 
 <br>
 
-Quellcode für eine native Android-App (Projekt für *Android Studio* mit Java), die demonstriert, wie man eine SQLite-Datenbank verwendet,
-um Abkürzungen zu speichern und zu durchsuchen.
+Quellcode für eine native Android-App (Projekt für *Android Studio* mit Java), die demonstriert, 
+wie man eine SQLite-Datenbank verwendet, um Abkürzungen zu speichern und zu durchsuchen.
 
 <br>
 
-SQL-Dateien zum Testen mit dem Kommandozeilenprogramm SQLite3 (z.B. *sqlite3.exe* unter Windows) finden Sie im Unterordner [SQL/](SQL).
+SQL-Dateien zum Testen mit dem Kommandozeilenprogramm SQLite3 (z.B. *sqlite3.exe* unter Windows) 
+finden Sie im Unterordner [SQL/](SQL).
 Diese Dateien werden NICHT in die von *Android Studio* generierte App-Datei (APK-Datei) aufgenommen.
 
 Siehe [dieses Repository](https://github.com/MDecker-MobileComputing/Android_AbkVerzMitRoom) für eine Variante dieser App, die die 
